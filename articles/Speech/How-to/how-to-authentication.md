@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
+<Not Completed Yet>
 # How to authenticate to use Speech Client APIs
 
 ## Using Subscription Key

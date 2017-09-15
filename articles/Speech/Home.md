@@ -30,7 +30,7 @@ each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicer
 * Supports capitalization and punctuation, masking profanity, and text normalization.
 * Provides both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, Object-C).
 
-Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for speech to text.
+Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for coverting speech to text.
 
 | Use cases | [REST](GetStarted/GetStartedREST) | [Client Libraries](GetStarted/GetStartedClientLibraries) |
 |-----|-----|-----|

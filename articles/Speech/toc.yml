@@ -12,6 +12,8 @@
   items:
   - name: Authentication for using the service 
     href: How-to/how-to-authentication.md
+  - name: Receive partial results
+    href: How-to/how-to-receive-partial-results.md
   - name: Intent Recognition
     href: How-to/how-to-recognize-with-luis.md
 - name: Concepts
