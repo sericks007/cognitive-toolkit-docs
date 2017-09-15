@@ -26,17 +26,21 @@ Highlight features:
 each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-language).
 * Applies powerful speech recognition technolgoies that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
 * Supports multiple recognition modes to enable optimized results in different user scenarios. The *Speech to Text* APIs currently support *interactive*, *conversation*, and *dictation* mode.
-* Real-time continuous recognition. The *Speech to Text* supports both recognition of 
-* Support adding capitalization and punctuation, masking profanity, and text normalization.
+* Real-time continuous recognition. The *Speech to Text* supports client to receive the interim recognition results of the words that have been recognized so far. The speech service also supports end-of-speech detection.
+* Supports capitalization and punctuation, masking profanity, and text normalization.
+* Provides both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, Object-C).
 
-Developers can use both REST API or Microsoft Speech Client Libraries to access APIs for speech to text. 
+Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for speech to text.
 
-It supports different use for interactive, conversaton and dictation
+| Use cases | [REST](GetStarted/GetStartedREST) | [Client Libraries](GetStarted/GetStartedClientLibraries) |
+| Convert a short spoken audio, e.g. commands (audio length < 15s) without intermit results | Yes | Yes |
+| Convert a long audio (> 15s) | No | Yes |
+| Stream audio with interim results desired. | No | Yes |
 
-Covert short spoken commands (audio length < 15s) without intermit results: REST and Client Libraries
-Audio length > 15s: Client Libraries.
-Interim results desired. Client Libraries
-
+### Next Steps
+* Get started to use the *Speech to Text* APIs by using [REST](GetStarted/GetStartedREST) or [Client Libraries](GetStarted/GetStartedClientLibraries)
+* Go to the [Sample](samples) section to check out sample applications in your perferred programming lanugage.
+* Go to the Reference section for find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol) details and API references.
 
 ## Text to speech (speech synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech
@@ -46,5 +50,3 @@ conversion in various voices and languages. For the full list of supported langu
 ### Text to speech API
 The maximum amount of audio returned for any single request is 15 seconds.
 
-## Next 
-Please follow Get Started to build your first speech enabled application.

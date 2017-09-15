@@ -7,13 +7,13 @@
   - name: REST  
     href: GetStarted/GetStartedREST.md
   - name: Client Libraries
-    href: GetStarted/GetStarted-cURL.md
-- name: How-to Guides 
+    href: GetStarted/GetStartedClientLibraries.md
+- name: How-to Guides
   items:
-  - name: authentication.
-    href: authentication.md
-  - name: recognize intent
-    href: recognize-with-luis.md
+  - name: Authentication for using the service 
+    href: How-to/how-to-authentication.md
+  - name: Intent Recognition
+    href: How-to/how-get-recognize-with-luis.md
 - name: Concepts
   href: concepts.md
 - name: Tutorials/Samples
