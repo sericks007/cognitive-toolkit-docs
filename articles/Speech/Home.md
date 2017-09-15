@@ -29,7 +29,7 @@ each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicer
 * Real-time continuous recognition. The *Speech to Text* supports client to receive the interim recognition results of the words that have been recognized so far. The speech service also supports end-of-speech detection.
 * Supports capitalization and punctuation, masking profanity, and text normalization.
 * Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home) to extract intents and entities from the recognized text.
-* Provides both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, Object-C).
+* Provides both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
 
 Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for coverting speech to text.
 
