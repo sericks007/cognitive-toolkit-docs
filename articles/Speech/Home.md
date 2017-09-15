@@ -13,7 +13,7 @@ ms.author: prrajan
 ---
 # Bing Speech API overview
 
-Microsoft Speech API provides you easy-to-use APIs to create powerful enable speech capability in your applications. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* transformation.
+Microsoft Speech API provides you easy-to-use APIs to create powerful speech-enabled features in your applications, like voice command control, user dialog using natual speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
 
 * **Speech to Text** APIs convert human speech to text that can be used as input or commands to control your application.
 * **Text to Speech** APIs convert text to audio streams that can be played back to the user of your application.
@@ -22,11 +22,11 @@ Microsoft Speech API provides you easy-to-use APIs to create powerful enable spe
 The *Speech to Text* APIs *transcribe* audio streams into text that your application can display to the user or act upon as command input. The *Speech To Text* APIs come in two flavors.
 
 Highlight features: 
-* The *Speech to Text* APIs support many spoken languages in multiple dialects. For the full list of supported languages in
+* Supports many spoken languages in multiple dialects. For the full list of supported languages in
 each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-language).
-* Powerful recognition, also used by Cortana, Office Dictation, Office Translator, and other Microsoft products
-* Configurable recognition modes that are optimized recognition for different user cases: 
-* Real-time recognition, 
+* Applies powerful speech recognition technolgoies that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
+* Supports multiple recognition modes to enable optimized results in different user scenarios. The *Speech to Text* APIs currently support *interactive*, *conversation*, and *dictation* mode.
+* Real-time continuous recognition. The *Speech to Text* supports both recognition of 
 * Support adding capitalization and punctuation, masking profanity, and text normalization.
 
 Developers can use both REST API or Microsoft Speech Client Libraries to access APIs for speech to text. 
