@@ -36,7 +36,8 @@ Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft
 |-----|-----|-----|
 | Convert a short spoken audio, e.g. commands (audio length < 15s) without intermit results | Yes | Yes |
 | Convert a long audio (> 15s) | No | Yes |
-| Stream audio with interim results desired. | No | Yes |
+| Stream audio with interim results desired | No | Yes |
+| Get LUIS intent together with the recognition results | No | Yes |
 
 ### Next Steps
 * Get started to use the *Speech to Text* APIs by using [REST](GetStarted/GetStartedREST) or [Client Libraries](GetStarted/GetStartedClientLibraries)
