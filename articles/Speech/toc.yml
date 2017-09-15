@@ -4,20 +4,20 @@
   href: Home.md
 - name: Get started
   items:
-  - name: C#(REST API)  
+  - name: REST  
     href: GetStarted/GetStartedREST.md
-  - name: cURL(REST API)
+  - name: Client Libraries
     href: GetStarted/GetStarted-cURL.md
-  - name: JavaScript(Websocket API)    
-    href: GetStarted/GetStartedJSWebsockets.md
-  - name: C#(Client Library)
-    href: GetStarted/GetStartedCSharpDesktop.md
-  - name: C#(Service Library)
-    href: GetStarted/GetStartedCSharpServiceLibrary.md
-  - name: Objective C on iOS(Client Library)   
-    href: GetStarted/Get-Started-ObjectiveC-iOS.md
-  - name: Java on Android(Client Library)
-    href: GetStarted/GetStartedJavaAndroid.md
+- name: How-to Guides 
+  items:
+  - name: authentication.
+    href: authentication.md
+  - name: recognize intent
+    href: recognize-with-luis.md
+- name: Concepts
+  href: concepts.md
+- name: Tutorials/Samples
+  href: tutorials.md
 - name: Reference
   items: 
   - name: Speech recognition API reference
