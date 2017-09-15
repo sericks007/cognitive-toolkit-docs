@@ -1,3 +1,18 @@
+
+---
+title: Concepts | Microsoft Docs
+description: Key concepts used in the Microsoft Speech Service.
+services: cognitive-services
+author: zhouwang
+manager: wolfma
+
+ms.service: cognitive-services
+ms.technology: speech
+ms.topic: article
+ms.date: 09/15/2017
+ms.author: zhouwang
+---
+
 # Key Concepts
 
 ## Speech recognition modes
@@ -10,3 +25,5 @@ Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. 
 | *conversation* | Continuous recognition for transcribing conversations between humans. Users adopt a less formal speaking style and may alternate between longer sentences and shorter phrases. |
 
 For more information, see [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference.
+
+## Usage Limits

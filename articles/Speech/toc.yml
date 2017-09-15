@@ -26,8 +26,4 @@
     href: API-Reference-REST/BingVoiceOutput.md
   - name: Websocket Protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: SDKs & Samples
-    items:
-    - name: JavaScript
-      href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 - name: Resources
