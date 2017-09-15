@@ -14,6 +14,8 @@ ms.author: zhouwang
 
 # Get Started with Microsoft Speech Client Libraries
 
+<Not Completed Yet>
+
 With Microsoft Speech Client Libraries you can develop applications to convert spoken audio to text. 
 
 ## [C# desktop libaries](GetStartedCSharpDesktop)

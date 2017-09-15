@@ -13,11 +13,11 @@
   - name: Authentication for using the service 
     href: How-to/how-to-authentication.md
   - name: Intent Recognition
-    href: How-to/how-get-recognize-with-luis.md
+    href: How-to/how-to-recognize-with-luis.md
 - name: Concepts
   href: concepts.md
 - name: Tutorials/Samples
-  href: tutorials.md
+  href: samples.md
 - name: Reference
   items: 
   - name: Speech recognition API reference
@@ -31,6 +31,3 @@
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 - name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
