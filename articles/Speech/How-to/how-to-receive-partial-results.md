@@ -2,8 +2,8 @@
 title: How to receive partial results during recognition | Microsoft Docs
 description: How to recognize partial results during recognition
 services: cognitive-services
-author: zhouwang
-manager: wolfma
+author: zhouwangzw
+manager: wolfma61
 
 ms.service: cognitive-services
 ms.technology: speech

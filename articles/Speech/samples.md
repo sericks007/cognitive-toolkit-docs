@@ -2,8 +2,8 @@
 title: Microsoft Speech Client Samples | Microsoft Docs
 description: Samples for using the Microsoft Speech service that converts spoken audio to text.
 services: cognitive-services
-author: zhouwang
-manager: wolfma
+author: zhouwangzw
+manager: wolfma61
 
 ms.service: cognitive-services
 ms.technology: speech
