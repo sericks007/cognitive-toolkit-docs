@@ -33,6 +33,7 @@ each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicer
 Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for speech to text.
 
 | Use cases | [REST](GetStarted/GetStartedREST) | [Client Libraries](GetStarted/GetStartedClientLibraries) |
+|-----|-----|-----|
 | Convert a short spoken audio, e.g. commands (audio length < 15s) without intermit results | Yes | Yes |
 | Convert a long audio (> 15s) | No | Yes |
 | Stream audio with interim results desired. | No | Yes |
