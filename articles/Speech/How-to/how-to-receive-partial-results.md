@@ -13,5 +13,5 @@ ms.author: zhouwang
 ---
 
 # How to receive partial results during recognition.
-<To be completed>
+**Not Completed Yet**
 

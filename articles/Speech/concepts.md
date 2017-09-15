@@ -12,8 +12,9 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-<Not Completed Yet>
+
 # Key Concepts
+**Not Completed Yet**
 
 ## Speech recognition modes
 Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. Choose the mode that produces the best recognition results for your application.

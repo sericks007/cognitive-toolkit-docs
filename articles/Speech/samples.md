@@ -12,9 +12,8 @@ ms.date: 09/15/2017
 ms.author: zhouwang
 ---
 
-<Not completed yet>
 # Microsoft Speech Client Samples
-
+**Not Completed Yet**
 
 
 ## [JavaScript samples](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
