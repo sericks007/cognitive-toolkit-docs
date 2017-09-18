@@ -21,16 +21,16 @@ Microsoft Speech API provides you easy-to-use APIs to create powerful speech-ena
 ## Speech to text (speech recognition)
 The *Speech to Text* API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The *Speech To Text* API provides developers an easy way to integrate Microsoft speech reconition technologies into their applications.
 
-* Supports many spoken languages in multiple dialects. For the full list of supported languages in
+* Support many spoken languages in multiple dialects. For the full list of supported languages in
 each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-language).
-* Applies powerful speech recognition technolgoies that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
-* Supports multiple recognition modes to enable optimized results in different user scenarios. The *Speech to Text* APIs currently support *interactive*, *conversation*, and *dictation* mode.
+* Leverage powerful speech recognition technolgoies that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
+* Multiple recognition modes to enable optimized results in different user scenarios. The *Speech to Text* APIs currently support *interactive*, *conversation*, and *dictation* mode.
 * Real-time continuous recognition. The *Speech to Text* supports client to receive the interim recognition results of the words that have been recognized so far. The speech service also supports end-of-speech detection.
-* Supports capitalization and punctuation, masking profanity, and text normalization.
+* Support capitalization and punctuation, masking profanity, and text normalization.
 * Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home) to extract intents and entities from the recognized text.
-* Provides both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
+* Provide both REST and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
 
-Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access APIs for coverting speech to text.
+Developers can choose either [REST API](GetStarted/GetStartedREST) or [Microsoft Speech Client Libraries](GetStarted/GetStartedClientLibraries) to access Microsoft speech to text services.
 
 | Use cases | [REST](GetStarted/GetStartedREST) | [Client Libraries](GetStarted/GetStartedClientLibraries) |
 |-----|-----|-----|
@@ -40,9 +40,9 @@ Developers can choose use either [REST](GetStarted/GetStartedREST) or [Microsoft
 | Undertand the text converted from audio using LUIS | No | Yes |
 
 ### Next Steps
-* Get started to use the *Speech to Text* APIs by using [REST](GetStarted/GetStartedREST) or [Client Libraries](GetStarted/GetStartedClientLibraries)
-* Go to the [Sample](samples) section to check out sample applications in your perferred programming lanugage.
-* Go to the Reference section for find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol) details and API references.
+* Get started to use the *Speech to Text* APIs with [REST API](GetStarted/GetStartedREST) or [Client Libraries](GetStarted/GetStarted)
+* Check out [sample applications](samples) in your perferred programming lanugage.
+* Go to the Reference section to find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol) details and API references.
 
 ## Text to speech (speech synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech
