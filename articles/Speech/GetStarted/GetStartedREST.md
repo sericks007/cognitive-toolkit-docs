@@ -54,7 +54,7 @@ The code below is an example implementation in C# for how to handle authenticati
 $FetchTokenHeader = @{
 'Content-type'='application/x-www-form-urlencoded';
 'Content-Length'= '0';
-'Ocp-Apim-Subscription-Key' = '*YOUR_SUBSCRIPTION_KEY*'
+'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
 }
 
 $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
@@ -62,10 +62,10 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsof
 
 # [cURL](#tab/cURL)
 ```
-    curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: *YOUR_SUBSCRIPTION_KEY*"
+    curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# [C#](#tab/C#)
+# [C#](#tab/CSharp)
 ```cs
     /*
      * This class demonstrates how to get a valid O-auth token.
@@ -141,6 +141,7 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsof
         }
     }
 ```
+
 ---
 
 The POST request sent to the token service by the command above looks like as follows:
