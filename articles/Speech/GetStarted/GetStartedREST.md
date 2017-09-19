@@ -1,36 +1,34 @@
 ---
-title: Get Started with the Speech API using REST in C# | Microsoft Docs
+title: Get Started with the Speech API using REST | Microsoft Docs
 description: Use the Bing Speech API in Microsoft Cognitive Services to develop basic REST applications that convert spoken audio to text.
 services: cognitive-services
-author: v-ducvo
-manager: rstand
+author: zhouwang
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/28/201
-ms.author: v-ducvo
+ms.date: 15/09/2017
+ms.author: zhouwang
 ---
 
 # Get Started with Speech Recognition using REST API
 
-With Bing Speech API you can develop applications using REST API to convert spoken audio to text. This article will help you to do speech recognition via REST end point. 
+With Microsoft Speech API you can develop applications using REST API to convert spoken audio to text. This article will help you to do speech recognition via REST end point. 
 
 ## Prerequisites
 
 #### Subscribe to Speech API and get a free trial subscription key
-To access the REST end point, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). After subscribing, you will have the necessary subscription keys to execute this operation. Both the primary and secondary keys can be used. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). 
+To access the REST end point, you must first subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). After subscribing, you will have the necessary subscription keys which are needed in the following operations. Both the primary and secondary keys can be used. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 #### Precorded audio file
-Record a short audio file of you saying something short (e.g.: *"What is the weather like today?"* or *"Find funny movies to watch."*) You will pass this audio to the Bing Speech API via the REST end point to have it transcribe into text. Or, you can use the microphone at the time of the request.
+In this example, we use a recorded audio file to illustrate the usage of the REST API. Please record a short audio file of you saying something short (e.g.: *"What is the weather like today?"* or *"Find funny movies to watch."*). The Microsoft Speech API also supports exteranl microphone input. Please see the [sample applications](samples) for how to use microphone input.
 
 > [!NOTE]
-> The Speech Recognition API supports audio/wav using the following codecs: 
-> * PCM single channel
-
+> The example requires that audio is recorded as wav file with **PCM single channel (mono), 16000Hz**.
 
 # Getting started
-To use Speech API REST end point, the process is as follows:
+To use Speech API REST end point, the steps are as follows:
 1. Authenticate and get a JSON Web Token (JWT) from the token service.
 2. Set the proper request header and send the request to Bing Speech API REST end point.
 3. Parse the response to get your transcribed text.
@@ -38,8 +36,10 @@ To use Speech API REST end point, the process is as follows:
 The sections following will provide more details.
 
 ## Authentication
-To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API. When you request for a token, the token service will send the access token back as a JSON Web Token (JWT). The JWT access token is passed through in the Speech request header. The token has an expiry of 10 minutes. The recommendation is to look into the JWT token and check
-the expiry time instead of hard-coding it to 10 minutes using the Expiration JwtSecurityToken property.
+To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API, as described [here](GetStartedREST##Prerequisites). Then you can send a POST request to the token service with the subscription key, and will receive in the response the access token back as a JSON Web Token (JWT), which will be passed through in the Speech request header.
+
+> [!NOTE]
+> The token has an expiry of 10 minutes.
 
 The token service URI is located here:
 
@@ -47,8 +47,25 @@ The token service URI is located here:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-The code below is an example implementation in C# for how to handle authentication:
+The code below is an example implementation in C# for how to handle authentication. Please replace *YOUR_SUBSCRIPTION_KEY* with your own subscription key.
 
+# [Powershell](#tab/Powershell)
+```Powershell
+$FetchTokenHeader = @{
+'Content-type'='application/x-www-form-urlencoded';
+'Content-Length'= '0';
+'Ocp-Apim-Subscription-Key' = '*YOUR_SUBSCRIPTION_KEY*'
+}
+
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
+```
+
+# [cURL](#tab/cURL)
+```
+    curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: *YOUR_SUBSCRIPTION_KEY*"
+```
+
+# [C#](#tab/C#)
 ```cs
     /*
      * This class demonstrates how to get a valid O-auth token.
@@ -124,13 +141,15 @@ The code below is an example implementation in C# for how to handle authenticati
         }
     }
 ```
+---
 
-The `FetchToken` method sends the request and the authentication payload is as follows:
+The POST request sent to the token service by the command above looks like as follows:
 
 ```
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
-Ocp-Apim-Subscription-Key: <GUID>
+Ocp-Apim-Subscription-Key: *YOUR_SUBSCRIPTION_KEY*
 Host: api.cognitive.microsoft.com
+Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 Connection: Keep-Alive
 ```

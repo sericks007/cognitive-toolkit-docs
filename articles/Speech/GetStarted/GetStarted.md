@@ -12,9 +12,9 @@ ms.date: 09/15/2017
 ms.author: zhouwang
 ---
 
-# Get Started with Microsoft Speech API
+# Quick start with Microsoft Speech API
 
-We show you a quick example how to use the Microsoft Speech service. 
+
 
 ## What's next
 
