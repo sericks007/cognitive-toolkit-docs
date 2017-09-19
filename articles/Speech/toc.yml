@@ -25,6 +25,8 @@
   href: concepts.md
 - name: Tutorials/Samples
   href: samples.md
+- name: Troubleshooting
+  href: troubleshooting.md
 - name: Reference
   items: 
   - name: Speech recognition API reference
