@@ -1,4 +1,4 @@
----
+8---
 title:   How to contribute to CNTK
 author:    chrisbasoglu
 ms.author:   cbasoglu
