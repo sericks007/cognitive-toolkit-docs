@@ -13,6 +13,8 @@
   items:
   - name: Authentication for using the service 
     href: How-to/how-to-authentication.md
+  - name: Choose recognition mode
+    href: How-to/how-to-choose-recognition-mode.md
   - name: Receive partial results
     href: How-to/how-to-receive-partial-results.md
   - name: Intent Recognition
