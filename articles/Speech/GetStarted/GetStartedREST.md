@@ -1,6 +1,6 @@
 ---
-title: Get Started with the Speech API using REST | Microsoft Docs
-description: Use the Bing Speech API in Microsoft Cognitive Services to develop basic REST applications that convert spoken audio to text.
+title: Using REST API for speech recognition  | Microsoft Docs
+description: Using REST to access Microsoft Speech API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwang
 manager: wolfma
@@ -39,7 +39,7 @@ The sections following will provide more details.
 To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API, as described [here](GetStartedREST##Prerequisites). Then you can send a POST request to the token service with the subscription key, and will receive in the response the access token back as a JSON Web Token (JWT), which will be passed through in the Speech request header.
 
 > [!NOTE]
-> The token has an expiry of 10 minutes.
+> The token has an expiry of 10 minutes. Please see the Authentication(How-to/how-to-authentication) section for how to renew the token. 
 
 The token service URI is located here:
 
@@ -75,21 +75,11 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsof
         public static readonly string FetchTokenUri = "https://api.cognitive.microsoft.com/sts/v1.0";
         private string subscriptionKey;
         private string token;
-        private Timer accessTokenRenewer;
-
-        //Access token expires every 10 minutes. Renew it every 9 minutes.
-        private const int RefreshTokenDuration = 9;
 
         public Authentication(string subscriptionKey)
         {
             this.subscriptionKey = subscriptionKey;
-            this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
-
-            // renew the token on set duration.
-            accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
-                                           this,
-                                           TimeSpan.FromMinutes(RefreshTokenDuration),
-                                           TimeSpan.FromMilliseconds(-1));
+            this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
         }
 
         public string GetAccessToken()
@@ -97,36 +87,7 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsof
             return this.token;
         }
 
-        private void RenewAccessToken()
-        {
-            this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
-            Console.WriteLine("Renewed token.");
-        }
-
-        private void OnTokenExpiredCallback(object stateInfo)
-        {
-            try
-            {
-                RenewAccessToken();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
-            }
-            finally
-            {
-                try
-                {
-                    accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
-                }
-            }
-        }
-
-        private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
+        private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
         {
             using (var client = new HttpClient())
             {
