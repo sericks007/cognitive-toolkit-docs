@@ -52,14 +52,17 @@ The code below is an example implementation in C# for how to handle authenticati
 # [Powershell](#tab/Powershell)
 ```Powershell
 $FetchTokenHeader = @{
-'Content-type'='application/x-www-form-urlencoded';
-'Content-Length'= '0';
-'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+  'Content-type'='application/x-www-form-urlencoded';
+  'Content-Length'= '0';
+  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
 }
 
 $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
-```
 
+# show the token received
+$OAuthToken
+
+```
 # [cURL](#tab/cURL)
 ```
     curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -147,24 +150,32 @@ Atuorization:
 ContentType:
 
 # [Powershell](#tab/Powershell)
+```Powershell
 
 $SpeechServiceURI =
 'https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&locale=en&format=detailed&requestid=2ed7cbc9-a214-44f3-851c-ae53e5'
 
+# $OAuthToken is the access token returned by the token service. 
 $RecoRequestHeader = @{
-'Authorization' = 'Bearer '+$OAuthToken;
-'Transfer-Encoding' = 'chunked'
-'Content-type' = 'audio/wav; codec="audio/pcm"; samplerate=16000'
+  'Authorization' = 'Bearer '+ $OAuthToken;
+  'Transfer-Encoding' = 'chunked'
+  'Content-type' = 'audio/wav; codec="audio/pcm"; samplerate=16000'
 }
 
+# Read audio into byte array
 $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-
 
 $Response = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
 
-# [cURL](#tab/cURL)
+# Show the result
+$Response
 
-`curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H "Transfer-Encoding: chunked" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
+```
+
+# [cURL](#tab/cURL)
+```
+curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H "Transfer-Encoding: chunked" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @YOUR_AUDIO_FILE
+```
 
 # [C#](#tab/CSharp)
 ```cs
