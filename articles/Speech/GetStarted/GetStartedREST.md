@@ -35,8 +35,8 @@ To use Speech API REST end point, the steps are as follows:
 
 The sections following will provide more details.
 
-## Authentication
-To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API, as described [here](GetStartedREST##Prerequisites). Then you can send a POST request to the token service with the subscription key, and will receive in the response the access token back as a JSON Web Token (JWT), which will be passed through in the Speech request header.
+## Get access token
+To access the REST endpoint, you need a valid OAuth token. To get this token, you must first have a subscription key from the Speech API, as described [here](GetStartedREST##Prerequisites). Then you can send a POST request to the token service with the subscription key, and will receive in the response the access token back as a JSON Web Token (JWT), which will be passed through in the Speech request header.
 
 > [!NOTE]
 > The token has an expiry of 10 minutes. Please see the Authentication(How-to/how-to-authentication) section for how to renew the token. 
@@ -116,25 +116,57 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-## REST end point
-The URL hostname for all requests is ```speech.platform.bing.com```. 
-For example,
-```
-https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=it-IT
-```
-## Recognition Mode  
-You specify the *recognition mode* as part of the URL path for the Microsoft Speech Service. The following recognition modes are supported.  
+## Send recognition request to the speech service 
 
-| Mode | Path | URL Example |
-|---- | ---- | ---- |
-| Interactive/Command | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR | 
+To preform speech recognition, you need to make a POST request to the Microsoft speech service with proper request header and body. 
+ 
+### REST end point
 
+The service for Microsoft Speech API is hosted by ```https:://speech.platform.bing.com```. The URI path for the REST endpoints consists of *recognition mode*, *version*, *language*, *format* and *request id*. 
+
+
+The value of recognition mode must be *interactive*, *conversation*, or *dictation*. In this example we use interactive mode. Please find more information on recognition mode in the [Concepts](Concepts) page. 
+
+The langauge is described 
+
+The format 
+
+The request id
+
+An exmaple of service URI is as follows
+
+```
+https://speech.platform.bing.com/speech/recognition/<YOUR_RECOGNITION_MODE>/cognitiveservices/v1?language=en-us
+```
 
 ## Request headers
-To send the request to the REST end point, create a **HttpWebRequest** object and set the request headers. For example, set `Method="POST"`, set `Host=@"speech.platform.bing.com"`, and set the access token as follows `Headers["Authorization"] = "Bearer " + token;`. The code snippet below shows a sample of a request header.
 
+The follow fields must be set in the request header.
+
+Atuorization: 
+ContentType:
+
+# [Powershell](#tab/Powershell)
+
+$SpeechServiceURI =
+'https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&locale=en&format=detailed&requestid=2ed7cbc9-a214-44f3-851c-ae53e5'
+
+$RecoRequestHeader = @{
+'Authorization' = 'Bearer '+$OAuthToken;
+'Transfer-Encoding' = 'chunked'
+'Content-type' = 'audio/wav; codec="audio/pcm"; samplerate=16000'
+}
+
+$audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
+
+
+$Response = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
+
+# [cURL](#tab/cURL)
+
+`curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H "Transfer-Encoding: chunked" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
+
+# [C#](#tab/CSharp)
 ```cs
 HttpWebRequest request = null;
 request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -146,6 +178,7 @@ request.Host = @"speech.platform.bing.com";
 request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
 request.Headers["Authorization"] = "Bearer " + token;
 ```
+---
 
 The follow is a sample request payload:
 
